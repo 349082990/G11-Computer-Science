@@ -1,0 +1,154 @@
+﻿<html>
+    <head>
+        <title>String Exercises</title>
+    </head>
+    <body>
+        <label for="input">Input</label>
+        <input type="text" id="input">
+        <button onclick="badWordsReplacer()"> Replace Bad Word</button>
+        <button onclick="grammarly()">Grammarly</button>
+        <button onclick="nameValidation()">Name Validation</button>
+        <button onclick="salutationValidation()">Salutation Validation</button>
+        <button onclick="passwordChecker()">password Checker</button>
+
+        <br /><br />
+
+        <button onclick="dnaChecker()">dna Checker</button>
+        <label for="dna1"> DNA string 1</label>
+        <input type="text" id="dna1">
+        <label for="dna2"> DNA string 2</label>
+        <input type="text" id="dna2">
+        <h1 id="answer"> </h1>
+
+       
+
+        <script>
+            const input = document.getElementById("input")
+            const DNA_ONE_INPUT = document.getElementById("dna1")
+            const DNA_TWO_INPUT = document.getElementById("dna2")
+            function badWordsReplacer() {
+                string = input.value;
+                string = string.replace("fudge", "*****");
+                string = string.replace("shoot", "*****");
+                string = string.replace("dang", "****");
+                input.value = string;
+            }
+
+            function grammarly() {
+                input.value = input.value.replace("me and my friend", "my friend and I")
+            }
+
+            function nameValidation() {
+                string = input.value.trim()
+                input.value = "name accepted"
+
+                if (string.length > 30) {
+                    input.value = "string is too long"
+                }
+                if (string.length <= 0 || string == "") {
+                    input.value = "string is too short"
+                }
+                for (let i = 0; i < 10; i++) {
+                    if (string.indexOf(i) != -1) { // Can also use isNaN
+                        input.value = "string can't contain numbers"
+                    }
+                }
+            }
+
+            function salutationValidation() {
+                string = input.value.trim();
+                input.value = "Salutation Accepted"
+                if (string[0].toUpperCase() != string[0] || string[string.length - 1] != ".") {
+                    input.value = "Unrecognized Salutation"
+                }
+
+            }
+
+            function passwordChecker() {
+                string = input.value.trim()
+                num = false;
+                specialCharacter = false;
+                for (let i = 0; i < 10; i++) {
+                    if (string.indexOf(i) != -1) {
+                        num = true;
+                        break
+                    }
+                }
+                if (string.replace("_") != string || string.replace("$") != string) {
+                    specialCharacter = true
+                }
+                if (specialCharacter && num && string.toUpperCase() != string && string.toLowerCase() != string && string.length >= 8) {
+                    input.value = "Very Strong Password"
+                } else if (specialCharacter && num) {
+                    input.value = "Strong Password"
+                } else if (specialCharacter || num) {
+                    input.value = "Medium Password"
+                } else {
+                    input.value = "Weak Password"
+                }
+            }
+
+            // Verifies that 2 DNA strings have only ACGT characters, and that the 2
+            // strings are complements of each other
+            function dnaChecker() {
+                //PART 1 VERIFY THAT THEY ONLY HAVE ACGT
+
+                // Get the original input 1
+                let input1 = document.getElementById('dna1').value;
+                let input2 = document.getElementById('dna2').value;
+
+                // remove all of the A,C,G, and T characters
+                input1 = input1.replaceAll("A", "")
+                input1 = input1.replaceAll("C", "")
+                input1 = input1.replaceAll("G", "")
+                input1 = input1.replaceAll("T", "")
+
+                // remove all of the A,C,G, and T characters
+                input2 = input2.replaceAll("A", "")
+                input2 = input2.replaceAll("C", "")
+                input2 = input2.replaceAll("G", "")
+                input2 = input2.replaceAll("T", "")
+
+                // if there is ANYTHING left over, as in the length > 0, there is some
+                // invalid input
+                if (input1.length > 0 || input2.length > 0) {
+                    alert("Invalid DNA strings inputted");
+                }
+                // Otherwise, the lengths are both 0, so there were no invalid characters
+                else {
+                    // PART 2 CHECK THAT THE 2 STRINGS ARE COMPLEMENTS
+
+                    // get the original inputs again
+                    input1 = document.getElementById("dna1").value;
+                    input2 = document.getElementById("dna2").value;
+
+                    // create the complement of the first input
+                    // do an intermediate replacement so we don't replace
+                    // any character twice
+                    input1 = input1.replaceAll("A", "a");
+                    input1 = input1.replaceAll("T", "t");
+                    input1 = input1.replaceAll("G", "g");
+                    input1 = input1.replaceAll("C", "c");
+
+                    // replace those itnermediate characters with the actual
+                    // complementary character
+                    input1 = input1.replaceAll("a", "T");
+                    input1 = input1.replaceAll("t", "A");
+                    input1 = input1.replaceAll("c", "G");
+                    input1 = input1.replaceAll("g", "C");
+
+                    // Compare the ACTUAL complementary string (the one we
+                    // made) to the second textbox. IF they are the same, then
+                    // the user inputted 2 complementary DNA strings
+                    if (input1 == input2) {
+                        document.getElementById('answer').innerText = "Valid DNA complements";
+                    }
+                    // Not complementary DNA strings
+                    else {
+                        document.getElementById('answer').innterText = "Invalid DNA complements";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

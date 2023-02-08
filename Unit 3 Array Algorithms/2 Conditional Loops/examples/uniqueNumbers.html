@@ -1,0 +1,106 @@
+﻿<html>
+    <body>
+        <p id="numbers"></p>
+
+        <script>
+            // get the paragraph
+            const P_NUMBERS = document.getElementById("numbers");
+
+            // good style
+            start();
+
+            // when the program starts, print out
+            // 3 unique numbers between 1 and 5
+            function start() {
+                createUniqueWords();
+            }
+
+            // create 3 unique words by selecting from an array
+            function createUniqueWords() {
+                // my unique words
+                let words = ['Kalen', 'Behrad', 'Peter', 'William',
+                    'Chaimaka', 'Ervin', 'Jordan', 'Melissa',
+                    'Harel', 'Simone', 'Kaelin', 'Yonathan', 'Max',
+                    'Andrew', 'Katherine', 'Mehmet', 'Vincent',
+                    'Rajan', 'Sean', 'Johnathan', 'Kasra', 'Hossane',
+                    'Ken', 'Carson']
+
+                // stores the 3 indices for my 3 chosen words
+                let chosenIndexes = new Array(3);
+
+                // I need to count how many indices I have chosen as well
+                // The array length is always 3, even though right now
+                // I have not chosen anyone yet.
+                let numChosen = 0;
+
+
+                // We need to repeatedly choose a random word, then check
+                // if it has already been selected. We need to repeat until
+                // we have successfully chosen 3 words.
+                while (numChosen < 3) {
+                    // choose a random word's index
+                    // It is a number between 0 and words.length - 1.
+                    let anIndex = Math.floor(Math.random() * words.length);
+
+                    // see if it has already been chosen
+                    // this is a 'flag' variable. I set it to true if I find
+                    // it already in the chosen array
+                    let alreadyChosen = false;
+
+                    // I loop through my 'chosen' array to see if it is there
+                    for (let i = 0; i < numChosen; i++) {
+                        // if the random index is already in the array
+                        // set my flag to true
+                        if (chosenIndexes[i] == anIndex) {
+                            alreadyChosen = true;
+                            break;
+                        }
+                    }
+
+                    // if anIndex has not been chosen yet, then it can now be
+                    // chosen -- put it in the chosen array
+                    if (alreadyChosen == false) {
+                        chosenIndexes[numChosen] = anIndex;
+                        numChosen++;
+                    }
+                }
+
+                // when the while loop exits, I have 3 unique words chosen
+                // print them out
+                P_NUMBERS.innerText =
+                    words[chosenIndexes[0]] + "\n" + words[chosenIndexes[1]] +
+                    "\n" + words[chosenIndexes[2]];
+            }
+
+
+            // moving my old code into a separate function
+            function createUniqueNumbers() {
+                // string to store the numbers I've generated
+                let theNumbers = "";
+
+                // When the string has a length of 3, then
+                // it has 3 numbers in it
+                while (theNumbers.length < 3) {
+
+                    // make a random number between 1 and 5
+                    let aNumber = Math.floor(Math.random() * 5) + 1;
+
+                    // check if we already made this number using
+                    // string's indexOf function
+                    if (theNumbers.indexOf(aNumber) == -1) {
+                        // add the number to the string
+                        // because it wasn't found
+                        theNumbers += aNumber;
+                    }
+                    // if the indexOf isn't -1, it exists, so don't add
+                }
+
+                // when the loop exits, there are 3 numbers
+                // print them out in the paragraph.
+                P_NUMBERS.innerText = theNumbers[0] + "\n" +
+                    theNumbers[1] + "\n" +
+                    theNumbers[2]
+            }
+        </script>
+    </body>
+</html>

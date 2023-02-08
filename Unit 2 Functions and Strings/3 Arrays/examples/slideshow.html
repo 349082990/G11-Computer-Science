@@ -1,0 +1,64 @@
+﻿<html>
+    <body>
+        <img id="currentPic" />
+        <p></p>
+        <button type="button" onclick="nextPicture();">
+            Next
+        </button>
+
+        <script>
+            // store the image filenames for the slideshow
+            let imageFilenames = new Array(3);
+            // store the image alt texts
+            let imageTexts = new Array(3);
+
+            // store the index of the image currently being shown
+            let currentImageIndex = 0;
+
+            loadImageFilenames();
+            showCurrentImage();
+
+            // go to the next image in the slideshow
+            function nextPicture() {
+                // go to the next index in the array
+                currentImageIndex = currentImageIndex + 1;
+
+                // go back to the beginning index if at the end
+                if (currentImageIndex == imageFilenames.length) {
+                    currentImageIndex = 0;
+                }
+               
+                // update the slideshow image
+                showCurrentImage();
+            }
+
+
+            // shows the image located at currentImageIndex in the
+            // imageFilenames array
+            function showCurrentImage() {
+                // get the <img> element
+                let imageTag = document.getElementById("currentPic");
+
+                // show the current image
+                imageTag.src = imageFilenames[currentImageIndex];
+                imageTag.alt = imageTexts[currentImageIndex];
+                imageTag.width = 500;
+                imageTag.height = 400;
+            }
+
+
+            // load the filenames into the array
+            function loadImageFilenames() {
+                imageFilenames[0] = "Master1.jpg";
+                imageTexts[0] = "Youngest grandmaster ever.";
+
+                imageFilenames[1] = "Master2.png";
+                imageTexts[1] = "Typical Russian grandmaster.";
+
+                imageFilenames[2] = "Master3.png";
+                imageTexts[2] = "Amazing grandmaster.";
+            }
+
+        </script>
+    </body>
+</html>

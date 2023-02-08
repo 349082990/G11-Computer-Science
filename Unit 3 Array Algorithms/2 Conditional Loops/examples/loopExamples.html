@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Loop Examples</title>
+    </head>
+    <body>
+        <p id="paragraph"></p>
+        <script>
+            // Constant for paragraph
+            PARAGRAPH = document.getElementById("paragraph");
+
+            // Create an array with 13 cards
+            let cards = new Array(13);
+
+            // Create an array with 3 player hands
+            let playerHand = new Array(3);
+
+            // Create an array with 3 computer hands
+            let computerHand = new Array(3);
+
+            // Call start function
+            start();
+
+            // Function to start the code
+            function start(){
+                // Call assignArrays function
+                assignArrays();
+
+                // Call assignHands function
+                assignHands();
+
+                // Print the cards, playerHand, and computerHand arrays to the console
+                PARAGRAPH.innerHTML = "Cards: " + cards + '<br>Player Hand: ' + playerHand + '<br>Computer Hand: ' + computerHand;
+            }
+
+            // Function for assigning cards
+            function assignArrays(){
+                // Assign king, queen, jack, ace cards to the 10-13 indexes
+                cards[10] = 'Q';
+                cards[11] = 'K';
+                cards[12] = 'A';
+                cards[13] = 'J';
+
+                // Use a counting loop to assign the card array with the strings 2 to 10
+                for(let i = 0; i <= 10; i ++){
+                    cards[i] = i + 2;
+                }
+            }
+
+            // Function for assigning cards to hands
+            function assignHands(){
+                // Use a while loop to choose 3 unique, random cards from the cards and assign them to the playerhand
+                let i = 0;
+                while (i < 3){
+                    // Generate a random index from 0 to 13
+                    let randomIndex = Math.floor(Math.random() * 14);
+
+                    // Check if the card at the random index has already been chosen
+                    let duplicate = false;
+                    for(let j = 0; j < i; j ++){
+                        if (playerHand[j] == cards[randomIndex]){
+                            duplicate = true;
+                        }
+                    }
+
+                    // If the card is not a duplicate,  add it to he playerHand
+                    if (!duplicate){
+                        playerHand[i] = cards[randomIndex];
+                        i++;
+                    }
+                }
+                
+                // Use a conditional loop to choose 3 random cards
+                i = 0;
+                while (i < 3){
+                    // Get a random index from 0 to 13
+                    let randomIndex = Math.floor(Math.random() * 14);
+
+                    // Check if the card at the random in dex has already been chosen
+                    let duplicate = false;
+                    for (let j = 0; j < i; j++){
+                        if (computerHand[j] == cards[randomIndex]){
+                            duplicate = true;
+                        }
+                    }
+                    for (let j = 0; j < 3; j++){
+                        if (playerHand[j] == cards[randomIndex]){
+                            duplicate = true;
+                        }
+                    }
+
+                    // If the card isn't a duplicate, then add the card to the computer hand
+                    if (!duplicate){
+                        computerHand[i] = cards[randomIndex];
+                        i++;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

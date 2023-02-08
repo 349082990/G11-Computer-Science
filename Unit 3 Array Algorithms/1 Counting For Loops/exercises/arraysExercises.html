@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Arrays Exercises</title>
+    </head>
+    <body>
+        <h2>Filmography</h2>
+
+        <button type="button" onclick="showAllMovies();">Show All</button> <br /><br /><br />
+        <button type="button" onclick="moviesWatched();">Watched</button> <br /><br /><br />
+        <button type="button" onclick="showWishlisted();">Wishlisted</button> <br /><br /><br />
+
+        <p id="paragraphAll"></p>
+        <p id="paragraphWatched"></p>
+        <p id="paragraphWish"></p>
+
+        <script>
+            // Create an array to store the most recent 5 films from IMDB
+            let filmography = [
+                "Avatar: The Way of Water\n", 
+                "Babylon\n", 
+                "Whitney Houston: I Wanna Dance with Somebody\n", 
+                "Black Panther: Wakanda Forever\n", 
+                "Puss in Boots: The Last Wish\n"
+            ];
+
+            // Create a parallel boolean array to store which movies I have watched
+            let watchedMovies = [
+                false, 
+                false, 
+                false, 
+                false, 
+                false];
+
+            // This function will show all movies
+            function showAllMovies(){
+                // Initialize an output string
+                let output = "";
+
+                // Loop through the filmography array
+                for(let i = 0; i < filmography.length; i++){
+                    // Add films to the output string
+                    output += filmography[i];
+                }
+                // Display the output in the show all paragraph
+                document.getElementById("paragraphAll").innerText = output;
+            }
+
+            // Create function to show only the movies I have seen
+            function moviesWatched(){
+                // Initialize an output string
+                let output = "";
+
+                // Loop through the watchedMovies array
+                for(let i = 0; i < watchedMovies.length; i++){
+                    // Check if the films have been seen
+                    if(watchedMovies[i]){
+                        // Add the films to the output string
+                        output += filmography[i];
+                    }
+
+                    // Display the output in the paragraphWatched paragraph
+                    document.getElementById("paragraphWatched").innerText = output;
+                }
+            }
+
+            // Create a function to show only the movies that the user has not seen
+            function showWishlisted(){
+                // Initialize an output string
+                let output = "";
+
+                // Loop through the moviesWatched array
+                for (let i = 0; i < watchedMovies.length; i++){
+                    // Check if the current film has not been seen
+                    if(!watchedMovies[i]){
+                        // Add the film to the output string
+                        output += filmography[i];
+                    }
+
+                    // Display the output in the paragraphWish paragraph
+                    document.getElementById("paragraphWish").innerText = output;
+                }
+            }
+        </script>
+    </body>
+</html>

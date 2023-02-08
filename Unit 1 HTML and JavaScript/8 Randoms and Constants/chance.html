@@ -1,0 +1,27 @@
+﻿<html>
+    <body>
+        <button type="button" onclick="createMessage();">
+            Random Phrase
+        </button>
+
+        <script>
+            function createMessage() {
+                // create a random number between 1 and 100
+                let randomNumber = (Math.random() * 100) + 1;
+
+                // 25% chanced of saying "Welcome"
+                if (1 <= randomNumber && randomNumber <= 25) {
+                    alert('Welcome');
+                }
+                // 30% chance of saying "Hello"
+                else if (26 <= randomNumber && randomNumber <= 55) {
+                    alert("Hello")
+                }
+                // 45% chance of saying "YEA BOOOY!"
+                else {
+                    alert("YEA BOOOY!");
+                }
+            }
+        </script>
+    </body>
+</html>

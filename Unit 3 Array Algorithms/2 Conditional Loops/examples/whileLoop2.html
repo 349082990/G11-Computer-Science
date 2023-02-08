@@ -1,0 +1,62 @@
+﻿<html>
+    <head>
+        <title>Random Words</title>
+    </head>
+    <body>
+        <button type="button" onclick="generateWords();">Generate Words</button> <br /><br /><br />
+        <p id="paragraph"></p>
+
+        <script>
+            function generateWords() {
+                // Create an array of words
+                let words = [
+                    "pop",
+                    "soda",
+                    "coke",
+                    "sprite",
+                    "mcdonalds",
+                    "bugerking",
+                    "chickfila",
+                    "tacobell",
+                    "bigmac",
+                    "mangoes"
+                ];
+
+                // Create an array to store the index numbers of the chosen words
+                let chosenIndices = [];
+
+                // Use a while loop to repeatedly choose a random word
+                let i = 0;
+                while (i < 3) {
+                    // Get a random index number between 0 and 9
+                    let randomIndex = Math.floor(Math.random() * 10);
+
+                    // Check if the index number has already been chosen
+                    let isIndexChosen = false;
+                    for (let j = 0; j < chosenIndices.length; j++) {
+                        if (chosenIndices[j] === randomIndex) {
+                            isIndexChosen = true;
+                            break;
+                        }
+                    }
+
+                    // If the index number has not been chosen, add it to the array
+                    if (!isIndexChosen) {
+                        chosenIndices[i] = randomIndex;
+                        i++;
+                    }
+                }
+
+                // Convert the chosen words array to a string
+                let wordsString = "";
+                for (let k = 0; k < chosenIndices.length; k++) {
+                    wordsString += words[chosenIndices[k]] + ", ";
+                }
+                wordsString = wordsString.substring(0, wordsString.length - 2);
+
+                // Display the chosen words in a paragraph
+                document.getElementById("paragraph").innerText = wordsString;
+            }
+        </script>
+    </body>
+</html>

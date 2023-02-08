@@ -1,0 +1,56 @@
+﻿<html>
+    <head>
+        <title>MadLibs</title>
+    </head>
+    <body>
+        <h2>Input your information below</h2>
+
+        <label for="firstName">First Name</label><br />
+        <input type="text" id="firstName"/>
+
+        <br /><br />
+
+        <label for="deepestDarkestSecret">Deepest Darkest Secret</label><br />
+        <input type="text" id="deepestDarkestSecret"/>
+
+        <br /><br />
+
+        <label for="favouriteThing">Favourite Thing</label><br />
+        <input type="text" id="favouriteThing"/>
+
+        <br /><br />
+
+        <button type="button" onclick="saveInfo();">
+            Save Information
+        </button>
+
+        <br /><br />
+
+        <button type="button" onclick="createMadLib();">
+            Create Madlib!
+        </button>
+
+        <p id ="printText"></p>
+
+        <script>
+            let firstNameInput;
+            let deepestDarkestSecretInput;
+            let favouriteThingInput;
+
+            function saveInfo() {
+                firstNameInput = document.getElementById('firstName').value;
+                deepestDarkestSecretInput = document.getElementById('deepestDarkestSecret').value;
+                favouriteThingInput = document.getElementById('favouriteThing').value;
+
+                document.getElementById('firstName').value = null;
+                document.getElementById('deepestDarkestSecret').value = null;
+                document.getElementById('favouriteThing').value = null;
+            }
+
+            function createMadLib() {
+                document.getElementById('printText').innerText = firstNameInput + " walked into a store. " + firstNameInput + " was looking to buy a " + favouriteThingInput + " as a present for their secret crush. But before buying anything, " + firstNameInput + " started to shiver. What if " + firstNameInput + "’s secret crush discovered their deepest, darkest secret ? " + deepestDarkestSecretInput + "… "
+            }
+        </script>
+
+    </body>
+</html>

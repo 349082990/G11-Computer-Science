@@ -1,0 +1,36 @@
+﻿<html>
+    <head>
+        <title>Store</title>
+    </head>
+    <body>
+        <h1>Restaurant</h1>
+
+        <button onclick="calculateTax(7);">Buy Bubble Tea $7</button>
+        <button onclick="calculateTax(5);">Buy Waffle $5</button>
+        <button onclick="calculateTax(11);">Buy Combo $11</button>
+        
+        <p id="paragraph"></p>
+
+        <script>
+            const PRICE_TEXT = document.getElementById("paragraph");
+            // This function will calculate the tax of each drink and output the price in a paragraph
+            function calculateTax(price) {
+                // If price is bubble tea, calculate the tax for bubble tea
+                if (price == 7) {
+                    var bubblePrice = (price * 1.13).toFixed(2);
+                    PRICE_TEXT.innerText = "Total Price For Bubble Tea: $" + bubblePrice;
+                }
+                // Calculate price for waffle if user clicks waffle button
+                if (price == 5) {
+                    var wafflePrice = (price * 1.13).toFixed(2);
+                    PRICE_TEXT.innerText = "Total price For Waffle: $" + wafflePrice;
+                }
+                // Calculate and print price for Combo
+                else {
+                    var comboPrice = (price * 1.13).toFixed(2);
+                    PRICE_TEXT.innerText = "Total Price For Combo of Bubble Tea and Waffle: $" + comboPrice;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+﻿<html>
+    <head>
+        <title>Ice Cream Shop</title>
+    </head>
+    <body>
+        <h2>Flavours</h2>
+
+        <p id="list"></p>
+        <p hidden="true" id="totalList"></p>
+
+        <button type="button" id="chocolate" onclick="updateStoreCounts(0);">Chocolate</button>
+        <button type="button" id="vanilla" onclick="updateStoreCounts(1);">Vanilla</button>
+        <button type="button" id="banana" onclick="updateStoreCounts(2);">Banana</button>
+
+        <script>
+            // Declare variables to control array sizes
+            const ICECREAM_NUM = 3;
+
+            // Declare global variables to track icecream shop status
+            let valueIceCream = 0;
+            let numIceCreamSold = 0;
+
+            // store all icecream information in each parallel array
+            let flavours = new Array(ICECREAM_NUM);
+            let flavourPrice = new Array(ICECREAM_NUM);
+            let flavoursSold = new Array(ICECREAM_NUM);
+
+            // constant for paragraph
+            const ICE_CREAM_INFO = document.getElementById("list");
+            const TOTAL_INFO = document.getElementById("totalList")
+
+            // begin the program
+            start();
+
+            // START - program function begins here
+            function start() {
+                createIceCreamValues();
+                printFlavours();
+            }
+
+            // This function will assign the array values
+            function createIceCreamValues() {
+                flavours[0] = "Chocolate";
+                flavourPrice[0] = 8;
+                flavoursSold[0] = 0;
+
+                flavours[1] = "Vanilla";
+                flavourPrice[1] = 5;
+                flavoursSold[1] = 0;
+
+                flavours[2] = "Banana";
+                flavourPrice[2] = 10;
+                flavoursSold[2] = 0;
+            }
+
+            // This function will print out each flavour with its price and numbers sold
+            function printFlavours() {
+                ICE_CREAM_INFO.innerText =
+                    flavours[0] + " -  Price: $" + flavourPrice[0] + " | Number sold: " + flavoursSold[0] +
+                    "\n" + flavours[1] + " -  Price: $" + flavourPrice[1] + " | Number sold: " + flavoursSold[1] +
+                    "\n" + flavours[2] + " -  Price: $" + flavourPrice[2] + " | Number sold: " + flavoursSold[2];
+
+                TOTAL_INFO.innerText = 
+                    "Total number of ice cream sold: " + numIceCreamSold +
+                    "\nTotal Revenue: $" + valueIceCream;
+            }
+
+            // Call printFlavours() function every 50 milliseconds
+            setInterval(printFlavours, 50);
+
+            // This function will update each flavour with its price and numbers sold
+            function updateStoreCounts(num) {
+                setTimeout(document.getElementById("totalList").hidden = false);
+                numIceCreamSold++;
+                if (num == 0) {
+                    flavoursSold[0]++;
+                    valueIceCream += flavourPrice[0];
+                }
+                else if (num == 1) {
+                    flavoursSold[1]++;
+                    valueIceCream += flavourPrice[1];
+                }
+                else {
+                    flavoursSold[2]++;
+                    valueIceCream += flavourPrice[2];
+                }
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+﻿<html>
+    <head>
+        <title>Changing Data Types</title>
+    </head>
+    <body>
+        <h3>Input 2 numbers to calculate sum or perimeter. Or, input a and b values into the same textbox, to calculate the hypoteneuse between the two numbers.</h3>
+        <label for="firstNumber">First Number: </label>
+        <input type='text' id="firstNumber" value="" />
+        +
+        <label for="secondNumber">Second Number: </label>
+        <input type="text" id='secondNumber' value="" />
+
+        <button onclick="findSum();">Calculate the sum</button>
+        <button onclick="findPerimeter();">Calculate the perimeter</button>
+        <button onclick="findHypoteneuse();">Calculate the hypoteneuse</button>
+
+        <script>
+            let firstInput;
+            let secondInput;
+            function getInputs() {
+                firstInput = Number(document.getElementById('firstNumber').value);
+                secondInput = Number(document.getElementById('secondNumber').value);
+            }
+            function findHypoteneuse() {
+                if (isNaN(document.getElementById('secondNumber').value) == false && isNaN(document.getElementById('secondNumber').value) == false) {
+                    getInputs();
+                    if (firstInput >= 0 && secondInput >= 0) {
+                        var hypotenuse = Math.sqrt(firstInput ** 2 + secondInput ** 2).toFixed(3);
+                        alert("Hypoteneuse: " + hypotenuse);
+                    }
+                    else {
+                        alert('Only use positive numbers!')
+                    }
+                }
+                else {
+                    alert('Only use numbers!');
+                }
+            }
+            function findPerimeter() {
+                if (isNaN(document.getElementById('firstNumber').value) == false && isNaN(document.getElementById('secondNumber').value) == false) {
+                    getInputs();
+                    if (firstInput >= 0 && secondInput >= 0) {
+                        var perimeter = (2 * firstInput + 2 * secondInput).toFixed(3);
+                        alert("Perimeter: " + perimeter);
+                    }
+                    else {
+                        alert('Only use positive numbers!')
+                    }
+                }
+                else {
+                    alert('Only use numbers!');
+                }
+            }
+            function findSum() {
+                if (isNaN(document.getElementById('firstNumber').value) == false && isNaN(document.getElementById('secondNumber').value) == false) {
+                    getInputs();
+                    var sum = (firstInput + secondInput).toFixed(3);
+                    alert("Sum: " + sum);
+                }
+                else {
+                    alert('Only use numbers!');
+                }
+            }
+        </script>
+    </body>
+</html>

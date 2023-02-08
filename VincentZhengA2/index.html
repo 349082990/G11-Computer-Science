@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles/style.css" />
+        <title>Battle Game</title>
+    </head>
+    <body>
+        <div class="selectionCenter" id="characterSelection">
+            <div>
+                <h1 id="chooseCharacter">Choose A Character</h1>
+                <img id="currentPic" />
+            </div>
+
+            <p></p>
+
+            <div>
+                <button type="button" onclick="displayPreviousCharacter();">See Previous Character</button>
+                <button type="button" onclick="chooseCurrentCharacterAndStartBattle();">Select Character</button>
+                <button type="button" onclick="displayNextCharacter();">See Next Character</button>
+            </div>
+
+            <div>
+                <p id="currentCharacter"></p>
+            </div>
+        </div>
+
+        <div hidden="true" id="battleGame">
+            <div class="topleft" id="playerStatus">
+                <h2 id="playerCharacter"></h2>
+                <img id="playerPicture" src="" alt="" />
+                <h2 id="playerHealth"></h2>
+                <p id="playerInformation"></p>
+            </div>
+
+            <div class="center" id="mainUI" class="main">
+                <p id="dictionaryWords"></p>
+                <br />
+                <button id="normalAttack" type="button" onclick="attack('normal');">Normal Attack</button>
+                <button id="specialAttack" type="button" onclick="attack('special');">Special Attack</button>
+
+                <br /><br />
+
+                <div>
+                    <label for="targetWord">Type in your answers</label>
+                    <br />
+                    <input disabled="true" type="text" id="targetWord">
+                    <br /><br />
+                    <p id="correct-letters"></p>
+                    <p id="remaining-word"></p>
+                    <p id="wrong-words"></p>
+                    <br />
+                    <p id="attack-status"></p>
+                    <br />
+                    <p id="computer-attack-status"></p>
+                </div>
+
+            </div>
+
+            <div class="topright" id="computerStatus">
+                <h2 id="computerCharacter"></h2>
+                <img id="computerPicture" src="" alt="" />
+                <h2 id="computerHealth"></h2>
+                <p id="computerInformation"></p>
+            </div>
+
+        </div>
+
+        <div hidden="true" id="gameOver">
+            <h1 id="gameOverTitle">GAME OVER!!!</h1>
+
+            <div id="resultText">
+                <h2 id="winStatus"></h2>
+                <h2 id="loseStatus"></h2>
+            </div>
+
+        </div>
+
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

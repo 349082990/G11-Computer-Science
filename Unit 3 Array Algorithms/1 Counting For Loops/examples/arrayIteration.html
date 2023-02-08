@@ -1,0 +1,84 @@
+<html>
+    <body>
+        <p id="info"></p>
+        <button type="button" onclick="printLongNames();">
+            Print Long Animal Names
+        </button>
+        <button type="button" onclick="printAllInfo();">
+            Print All Animals
+        </button>
+
+        <script>
+            // get the HTML paragraph
+            const P_INFO = document.getElementById("info");
+
+            // create my parallel arrays to store letters
+            // and animals -- they are assigned in my function
+            // loadInfo()
+            let letters;
+            let animals;
+
+            // program begins here
+            start();
+
+            // web page load functions
+            function start(){
+                loadInfo();
+                printAllInfo();
+            }
+
+            // print only animal names with 5 or more characters
+            function printLongNames(){
+                // clear my paragraph - a good thing to start with
+                P_INFO.innerText = "";
+
+                // loop through all my array indices
+                for(let i = 0; i < animals.length; i++){
+                   
+                    // With each array element, check if it is long
+                    if (animals[i].length >= 5){
+                        // if it is long, print it in the paragraph
+                        P_INFO.innerText +=
+                            letters[i] + " is for " + animals[i] + ".\n";
+                    }   
+
+                }
+            }
+
+            // print out all information
+            function printAllInfo(){
+                // clear my paragraph
+                P_INFO.innerText = "";
+
+                // we can use this counting loop to count through
+                // all the indices, starting from 0, and going
+                // to the last index.
+                for (let i = 0; i < animals.length; i++) {
+                    P_INFO.innerText +=
+                        letters[i] + " is for " + animals[i] + ".\n";
+                }
+
+                // print out the info, one set of elements per line
+                /*
+                P_INFO.innerText += letters[0] + " is for " + animals[0] + ".\n";
+                P_INFO.innerText += letters[1] + " is for " + animals[1] + ".\n";
+                P_INFO.innerText += letters[2] + " is for " + animals[2] + ".\n";
+                P_INFO.innerText += letters[3] + " is for " + animals[3] + ".\n";
+                P_INFO.innerText += letters[4] + " is for " + animals[4] + ".\n";
+                P_INFO.innerText += letters[5] + " is for " + animals[5] + ".\n";
+                P_INFO.innerText += letters[6] + " is for " + animals[6] + ".\n";
+                */
+            }
+
+            // assign all array information
+            function loadInfo(){
+                // assign my arrays using a shortcut
+                letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+                animals =
+                    ['Ant', 'Bear', 'Cat', 'Dog', 'Elephant', 'Frog', 'Giraffe'];
+
+            }
+        </script>
+    </body>
+</html>

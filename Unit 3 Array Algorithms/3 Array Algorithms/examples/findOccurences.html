@@ -1,0 +1,65 @@
+<html>
+    <body>
+        <p id="paragraph1"></p>
+
+        <input type="text" id="searchBox"/>
+
+        <button type="button" onclick="findOccurrences(words,
+            document.getElementById('searchBox').value,
+            'paragraph1');">
+            Find Number of Search Results
+        </button>
+
+        <script>
+            let words = ['Carson', 'Carson', 'Harel', 'Simone',
+                        'Kian', 'Kalen', 'Peter', 'Behrad',
+                        'Melissa', 'Jordan'];
+
+            // Find the number of times the 'searchTerm' is found in
+            // the 'array'.  Print out that number in 'paragraphId'
+            function findOccurrences(array, searchTerm, paragraphId){{
+               
+                // get the paragraph and clear it
+                let paragraph = document.getElementById(paragraphId);
+                paragraph.innerText = "";
+
+                // the search algorithm
+                // go through every element in the array one at a time
+                // Whenever an element equals the searchTerm, count it
+
+                // used to count the number of times searchTerm is found
+                let counter = 0;
+
+                // NOT ALLOWED -- uses a built-in array
+                // search
+                // array.indexOf(searchTerm);
+
+                // go through the array starting at the first index
+                for ( let i = 0; i < array.length; i++ ){
+
+                    // check if the current array element is equal to
+                    // the searchTerm -- if it is, count it
+                    if ( array[i] == searchTerm ){
+                        // THIS IS ALLOWED -- uses a built-in string
+                        // function.  This is not an array search.
+                        // array[i].indexOf(searchTerm)
+                        counter++;
+                    }
+                }
+                // after the for loop, the entire array has been
+                // searched
+
+                // print out the search results
+                paragraph.innerText = "Number of times found: " +
+                                        counter;
+
+
+            }
+
+            }
+        </script>
+
+
+
+    </body>
+</html>

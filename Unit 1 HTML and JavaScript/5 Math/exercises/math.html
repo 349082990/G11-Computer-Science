@@ -1,0 +1,33 @@
+﻿<html>
+    <head>
+        <title>Math</title>
+    </head>
+
+    <body>
+
+       <button type="button" id ="countButton" onclick="numLikes();">
+           0
+       </button>
+
+        <script>
+            // exercise 1
+            alert(Math.round(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 * 10 / 3));
+
+            // exercise 2
+            let aSquared = Math.pow(32, 2); // 32^2
+            let bSquared = Math.pow(47, 2); // 47^2
+            let cSquared = aSquared + bSquared; // c^2 = a^2 + b^2
+            let hypoteneuse = Math.sqrt(cSquared); // c = hypoteneuse
+
+            alert(hypoteneuse.toFixed(3))
+
+            // exercise 3 
+            let count = 0;
+
+            function numLikes() {
+                count = count + 1
+                document.getElementById('countButton').innerText = count;
+            }
+        </script>
+    </body>
+</html>

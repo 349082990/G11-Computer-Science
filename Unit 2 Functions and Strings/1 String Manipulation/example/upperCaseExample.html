@@ -1,0 +1,113 @@
+﻿<html>
+<body>
+    <label for="textbox">Input: </label>
+    <input type="text" id="textbox" />
+
+    <button type="button" onclick="checkAllCaps();">
+        Check All Caps
+    </button>
+
+    <button type="button" onclick="checkAllSmall();">
+        Check All Small Letters
+    </button>
+
+    <button type="button" onclick="checkForTrash();">
+        Check For Trash
+    </button>
+
+    <button type="button" onclick="createPreview();">
+        Create Preview
+    </button>
+
+    <button type="button" onclick="createEnding();">
+        Create Ending
+    </button>
+
+    <button type="button" onclick="findFirstName();">
+        Find First Name
+    </button>
+
+    <script>
+
+        function findFirstName() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+
+            // find out where the space is
+            let indexOfSpace = input.indexOf(" ");
+
+            // only entered their first
+            if (indexOfSpace == -1) {
+                alert(input);
+            }
+            // space was found, everything before the space is the firstname
+            else {
+                alert(input.substring(0, indexOfSpace));
+            }
+        }
+
+
+        // get the ending of a string
+        function createEnding() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+
+            // short strings should be printed fully
+            if (input.length <= 10) {
+                alert(input);
+            }
+            // long strings print only their last 10 characters
+            else {
+                let ending = input.substr(input.length - 10, 10);
+                alert(ending);
+            }
+        }
+
+        // create a "preview" of a message
+        function createPreview() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+
+            // store the text to preview
+            let preview;
+
+            // short messages can be shown fully
+            if (input.length <= 10) {
+                preview = input;
+            }
+            // show only the first 10 characters for longer messages
+            else {
+                preview = input.substring(0, 10);
+            }
+
+            alert(preview);
+        }
+
+
+        function checkForTrash() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+            if (input != input.replace("trash", "")) {
+                alert("Currently trending: trash");
+            }
+        }
+
+        function checkAllSmall() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+            if (input == input.toLowerCase()) {
+                alert("You are feeling calm");
+            }
+        }
+
+        function checkAllCaps() {
+            // get the input from the textbox
+            let input = document.getElementById('textbox').value;
+            if (input == input.toUpperCase()) {
+                alert("You are feeling angry");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<html>
+    <body>
+        <input type="text" id="username"/>
+        <button type="button" onclick="welcomeUser();">
+            Login
+        </button>
+        <p id="message"></p>
+        <script>
+            //pre: requires paragraph with id = "message"
+            //     requires input element with id = "username"
+            //post: display a welcome message for user
+            function welcomeUser() {
+                // get the paragraph to show the message
+                let paragraph = document.getElementById('message');
+
+                // get the textbox to get the user's name
+                let text = document.getElementById('username')
+
+                // get the name from the textbox
+                // Save the username from the textbox into the
+                // "username" variable
+                let username = text.value;
+
+                // print out the welcome message
+                paragraph.innerText = 'Welcome ' + username;
+            }
+        </script>
+    </body>
+</html>

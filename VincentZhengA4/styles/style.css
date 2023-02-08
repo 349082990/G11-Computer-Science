@@ -1,0 +1,184 @@
+/* Similar CSS visuals as BitWarden */
+:root { 
+    --primary-background: #1f242e;
+    --primary-font-color: #ffffff;
+    --secondary-font-color: #ced4da;
+    --title-background-color: #2f343d;
+    --filter-background-color: #2f343d;
+    --filter-title-background: #4c525f;
+    --blue-color: #6a99f0;
+    --button-hover: rgb(59 130 246 / 0.5);
+    --transparent-hover: rgb(255 255 255 / 0.12);
+    --font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+}
+
+body {
+    background-color: var(--primary-background);
+    color: var(--primary-font-color);
+  }
+
+#login-form{
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-field {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--primary-background);
+    color: var(--primary-font-color);
+    width:250px;
+    text-align:center;
+
+    border-radius: 25px;
+    border: 2px solid #6c757d;
+    padding: 60px;
+    width: 200px;
+    height: 150px;
+  }
+
+#username{
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--title-background-color);
+    color: white;
+}
+
+#password{
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--title-background-color);
+    color: white;
+}
+
+input[type="submit"] {
+    background-color: var(--blue-color);
+    color: black;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;  
+    width:100px;
+    margin:10px auto;
+    display:block;
+    }
+
+input[type="submit"]:hover {
+  background-color: rgb(169, 189, 223);
+}
+
+
+/* Database Page */
+
+#password-manager{
+  z-index: 1;
+  background-color: var(--primary-background);
+}
+
+.top-bar{
+  background-color: var(--title-background-color);
+  position: relative;
+}
+
+#manager-title{
+  color: var(--primary-font-color);
+  margin-left: 19vw;
+  font-size: 28px;
+  font-family: var(--font-family);
+  padding: 10.500px;
+}
+
+/* Monster Chart */
+table.password-table {
+  margin-top: 7vh;
+  width: 30vw;
+  border-collapse: collapse; 
+}
+
+.password-table{
+  position: absolute;
+  left: 35vw;
+  margin-left: 6vw;
+}
+
+th, td {
+  border-top: 1px solid var(--filter-title-background); 
+  border-bottom: 1px solid var(--filter-title-background); 
+  padding: 12px; 
+}
+
+tr:hover {
+  background-color: var(--transparent-hover);
+}
+
+/* Filters */
+#filters{
+  position: absolute;
+  left: 20vw;
+  top: 2vh;
+  margin-top: 12vh;
+
+  background-color: var(--title-background-color);
+  border-radius: 5px;
+  border: 1px solid #6c757d;
+  height: 54vh;
+  width: 250px;
+
+  text-align: center;
+}
+
+.buttons{
+  text-align: left;
+  margin-left: 36px;
+}
+
+#filters-title{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  
+  margin-left: 36px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+  font-size: 15px;
+  font-family: var(--font-family);
+}
+
+#add-credentials{
+  background-color: var(--filter-background-color);
+  color: var(--primary-font-color);
+  z-index: 3;
+
+  position: relative;
+  width: 15vw;
+
+  border-radius: 5px;
+  border: 1px solid #6c757d;
+  margin-top: 8vh;
+  margin-left: 2vw;
+  
+  align-items: center;
+  text-align: center;
+}
+
+#random-password{
+  background-color: var(--filter-background-color);
+  color: var(--primary-font-color);
+  z-index: 4;
+
+  position: relative;
+  width: 15vw;
+  text-align: center;
+
+  border-radius: 5px;
+  border: 1px solid #6c757d;
+
+  margin-top: 8vh;
+  margin-left: 2vw;
+}

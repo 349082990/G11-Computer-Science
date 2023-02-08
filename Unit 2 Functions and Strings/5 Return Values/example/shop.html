@@ -1,0 +1,47 @@
+﻿<html>
+    <body>
+        <button type="button" onclick="buyItem(7);">
+            Buy Bubble Tea ($7)
+        </button>
+
+        <button type="button" onclick="buyItem(5);">
+            Buy Waffle ($5)
+        </button>
+
+        <button type="button" onclick="buyItem(11);">
+            Buy Combo ($11)
+        </button>
+
+        <p id="totals"></p>
+
+        <script>
+            // store the <p id="totals">
+            const P_TOTALS = document.getElementById("totals");
+
+            // track the running subtotal and tax amounts
+            let subtotal = 0;
+            let taxes = 0;
+
+            // calculate and RETURN only the taxes on the item price
+            function calculateTax(price) {
+                return price * 0.13;
+            }
+
+            // adds an item to the transaction
+            function buyItem(price) {
+                // increase purchase totals -- not possible
+                // to do with the old calculateTax() function
+                // without return
+                subtotal = subtotal + price;
+                taxes = taxes + calculateTax(price);
+
+                // update display -- not possible to do with
+                // the old calculateTax() function without return
+                P_TOTALS.innerText =
+                    "Subtotal: $" + subtotal.toFixed(2)
+                    + "\nTaxes: $" + taxes.toFixed(2)
+                    + "\nTotal: $" + (subtotal + taxes).toFixed(2);
+            }
+        </script>
+    </body>
+</html>

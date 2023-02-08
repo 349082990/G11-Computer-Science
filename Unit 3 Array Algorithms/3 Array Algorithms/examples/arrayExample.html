@@ -1,0 +1,26 @@
+<html>
+    <body>
+
+        <script>
+            let numbers = [12,543,4341,21,41,4,6,76,4,34,7,2,124,6,4];
+
+            console.log(sumArray(numbers));
+
+            // Exercise 1
+            function sumArray(theArray){
+ 
+                let theSum = 0;
+
+                // go through the entire array by starting with index 0
+                // and going to theArray.length - 1
+                for ( let index = 0; index < theArray.length; index++){
+                    // add each array element to theSum
+                    theSum = theSum + theArray[index];
+                }
+
+                return theSum;
+            }
+
+        </script>
+    </body>
+</html>

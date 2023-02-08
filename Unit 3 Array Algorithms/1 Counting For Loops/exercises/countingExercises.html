@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Counting Exercises</title>
+    </head>
+    <body>
+        <h2>Counting Exercise 1</h2>
+
+        <label for="startingNum">Starting Number:</label> <br />
+        <input id="startingNum" type="text" /> <br /><br />
+        
+        <label for="endingNum">Ending Number:</label> <br />
+        <input id="endingNum" type="text" /> <br /><br />
+
+        <button type="button" onclick="printNumbers();">Print numbers</button> <br /><br />
+
+        <p id="paragraph1"></p>
+        
+        <hr />
+
+        <h2>Counting Exercise 2</h2>
+
+        <label for="startingNum2">Starting Number:</label> <br/>
+        <input id="startingNum2" type="text" /> <br/><br/>
+
+        <label for="differenceNum">Difference between numbers:</label><br/>
+        <input id="differenceNum" type="text" /><br/><br/>
+        
+        <label for="numOfNums">Number of numbers:</label><br/>
+        <input id="numOfNums" type="text" /><br/><br/>
+
+        <button type="button" onclick="printNumbers2();">Print Numbers</button><br/><br/>
+         <p id="paragraph2"></p>
+        
+        <script>
+            function printNumbers(){
+                // Get the starting number input
+                let startInput = document.getElementById("startingNum").value;
+                // Get the input for the ending gnumber
+                let endingInput = document.getElementById("endingNum").value;
+                // Store the numbers in an output variable
+                let output = "";
+                // Assign paragraph 1 to a constant
+                const PARAGRAPH = document.getElementById("paragraph1");
+
+                // Convert the input strings to numbers
+                startInput = Number(startInput);
+                endingInput = Number(endingInput);
+
+                // Check if start input is greater than end input
+                if(startInput > endingInput){
+                    // Count down from start to end
+                    for(let i = startInput; i >= endingInput; i--){
+                        // Add the current number in the forloop to the output string
+                        output += i + " ";
+                    }
+                }else{
+                    // Count up from the starting number to the ending number
+                    for(let i = startInput; i <= endingInput; i++){
+                        // Add the current numbers in the forloop to the output string
+                        output += i + " ";
+                    }
+                }
+
+                // Display the output in the paragraph
+                PARAGRAPH.innerText = output;
+            }
+
+            function printNumbers2(){
+                // Get starting number input
+                let startInput = document.getElementById("startingNum2").value;
+                // Get the input for the difference between numbers
+                let differenceInput = document.getElementById("differenceNum").value;
+                // Get the input for the number of numbers
+                let numOfNumsInput = document.getElementById("numOfNums").value;
+                // Store the numbers in an output variable
+                let output = "";
+                // Create a counter for the number of numbers printed
+                let numPrinted = 0;
+                // Assign the paragraph to a constant
+                const PARAGRAPH2 = document.getElementById("paragraph2");
+
+                // Convert the input strings top numbers
+                startInput = Number(startInput);
+                differenceInput = Number(differenceInput);
+                numOfNumsInput = Number(numOfNumsInput);
+
+                // Use the loop counter to count both the number of numbers printed
+                // and to count through (enumerate) the sequence of numbers to print out
+                for(let i = startInput; numPrinted < numOfNumsInput; i += differenceInput){
+                    // Add the current number to the output string
+                    output += i + " ";
+                    // Increment the number of numbers printed
+                    numPrinted++;
+                }
+                // Display the output in the paragraph
+                PARAGRAPH2.innerText = output;
+            }
+        </script>
+    </body>
+</html>

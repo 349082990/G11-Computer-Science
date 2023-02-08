@@ -1,0 +1,102 @@
+﻿<html>
+    <head>
+        <title>ContactCard</title>
+    </head>
+    <body>
+        <h2>Add new contact</h2>
+        <h3>Name</h3>
+
+        <label for ="firstName">First Name</label><br />
+        <input type="text" id="firstName" />
+
+        <br /><br />
+
+        <label for="lastName">Last Name</label><br />
+        <input type="text" id="lastName" />
+
+        <br /><br />
+
+        <label for="age">Age</label><br />
+        <input type="text" id="age"/>
+
+        <br /><br />
+
+        <label for="address">Address</label><br />
+        <input type="text" id="address"/>
+
+        <br /><br />
+
+        <label for="phoneNumber">Phone Number</label><br />
+        <input type="number" id="phoneNumber"/>
+
+        <br /><br />
+
+        <label for="emailAddress">Email Address</label><br />
+        <input type="text" id="emailAddress"/>
+
+        <br /><br />
+
+        <label for="nickname">Nickname</label><br />
+        <input type="text" id="nickname"/>
+
+        <br /><br />
+
+        <label for="notes">Notes</label><br />
+        <input type="text" id="notes"/>
+
+        <br /><br />
+
+        <button type="button" onclick="saveContact();">
+            Save Contact
+        </button>
+        
+        <br /><br />
+
+        <button type="button" onclick="loadContact();">
+            Load Contact
+        </button>
+
+        <script>
+            let firstNameInput;
+            let lastNameInput;
+            let ageInput;
+            let addressInput;
+            let phoneNumberInput;
+            let emailAddressInput;
+            let nicknameInput;
+            let notesInput;
+
+            function saveContact() {
+                firstNameInput = document.getElementById('firstName').value;
+                lastNameInput = document.getElementById('lastName').value;
+                ageInput = document.getElementById('age').value;
+                addressInput = document.getElementById('address').value;
+                phoneNumberInput = document.getElementById('phoneNumber').value;
+                emailAddressInput = document.getElementById('emailAddress').value;
+                nicknameInput = document.getElementById('nickname').value;
+                notesInput = document.getElementById('notes').value;
+
+                document.getElementById('firstName').value = null;
+                document.getElementById('lastName').value = null;
+                document.getElementById('age').value = null;
+                document.getElementById('address').value = null;
+                document.getElementById('phoneNumber').value = null;
+                document.getElementById('emailAddress').value = null;
+                document.getElementById('nickname').value = null;
+                document.getElementById('notes').value = null;
+            }
+
+            function loadContact() {
+                document.getElementById('firstName').value = firstNameInput;
+                document.getElementById('lastName').value = lastNameInput;
+                document.getElementById('age').value = ageInput;
+                document.getElementById('address').value = addressInput;
+                document.getElementById('phoneNumber').value = phoneNumberInput;
+                document.getElementById('emailAddress').value = emailAddressInput;
+                document.getElementById('nickname').value = nicknameInput;
+                document.getElementById('notes').value = notesInput;
+            }
+        </script>
+
+    </body>
+</html>

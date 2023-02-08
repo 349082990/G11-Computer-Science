@@ -1,0 +1,25 @@
+﻿<html>
+    <body>
+        <button type="button" id="likeButton" onclick="moreLikes();">
+            Like
+        </button>
+        <script>
+            //exercise 1
+            // setInterval(repeatBoo, 5000)
+            function repeatBoo() {
+                alert("BOO!");
+            }
+
+            //exercise 2
+            setInterval(moreLikes, 1000);
+            let likes = 0;
+
+            function moreLikes() {
+                // Increases the like count
+                likes = likes + 1;
+
+                document.getElementById('likeButton').innerText = likes;
+            }
+        </script>
+    </body>
+</html>

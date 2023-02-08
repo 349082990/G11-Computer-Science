@@ -1,0 +1,68 @@
+﻿<html>
+    <head>
+        <title>Round Object Calcualtor</title>
+    </head>
+    <body>
+        <label for="input">Input Radius (cm): </label>
+        <input type="text" id="input" />
+        <button onclick="calculateAll();">Calculate All</button>
+        <p id="solution"></p>
+
+        <script>
+            // Find user input
+            let radius = document.getElementById("input");
+            //Declare constant for the paragraph
+            const CALCULATIONS = document.getElementById("solution");
+            // Function for making all calculations
+            function calculateAll() {
+                // Call functions to make calculations
+                calculateDiameter(radius);
+                calculateArea(radius);
+                calculateCircumference(radius);
+                calculateSurfaceArea(radius);
+                calculateVolume(radius);
+                // Print all calculations
+                CALCULATIONS.innerText =
+                    "The diameter of a circle with a radius of " + radius.value + "cm is: " + calculateDiameter(radius) + "cm" +
+                    "\nThe area of a circle with a radius of " + radius.value + "cm is: " + calculateArea(radius) + "cm" +
+                    "\nThe circumference of a circle with a radius of " + radius.value + "cm is: " + calculateCircumference(radius) + "cm" +
+                    "\nThe surface area of a sphere with a radius of " + radius.value + "cm is: " + calculateSurfaceArea(radius) + "cm" +
+                    "\nThe volume of a sphere with a radius of " + radius.value + "cm is: " + calculateVolume(radius) + "cm";
+            }
+
+            // Calculate diameter
+            function calculateDiameter(radius) {
+                var radius = document.getElementById("input").value;
+                var diameter = radius * 2;
+                return diameter;
+            }
+
+            // Calculate Area
+            function calculateArea(radius) {
+                var radius = document.getElementById("input").value;
+                var area = Math.PI * radius ** 2;
+                return area;
+            }
+
+            // Calculate circumference
+            function calculateCircumference(radius) {
+                var radius = document.getElementById("input").value;
+                var circumference = 2 * Math.PI * radius;
+                return circumference;
+            }
+
+            // Calculate surface area
+            function calculateSurfaceArea(radius) {
+                var radius = document.getElementById("input").value;
+                var surfaceArea = 4 * Math.PI * radius ** 2;
+                return surfaceArea;
+            }
+            // Calculate the volume
+            function calculateVolume(radius) {
+                var radius = document.getElementById("input").value;
+                var volume = (4 / 3) * Math.PI * radius ** 3;
+                return volume;
+            }
+        </script>
+    </body>
+</html>

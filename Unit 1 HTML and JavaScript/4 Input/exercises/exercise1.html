@@ -1,0 +1,40 @@
+﻿<html>
+    <body>
+       <label for = "name">Name</label>
+        <input type="text" id="name" />
+
+        <br /><br />
+        
+        <label for ="age">Age</label>
+        <input type="text" id="age"/>
+
+        <br /><br />
+
+        <button type="button" onclick="save();">
+            Save
+        </button>
+        <button type="button" onclick="load();">
+            Load
+        </button>
+
+        <p id="repeatNames"></p>
+       
+        <script>
+            let name;
+            let age;
+
+            function save() {
+                name = document.getElementById('name').value;
+                age = document.getElementById('age').value;
+                document.getElementById('name').value = null;
+                document.getElementById('age').value = null;
+            }
+
+            function load() {
+                document.getElementById('repeatNames').innerText = "Name: " + name + "\n Age:" + age
+            }
+        </script>
+
+
+    </body>
+</html>

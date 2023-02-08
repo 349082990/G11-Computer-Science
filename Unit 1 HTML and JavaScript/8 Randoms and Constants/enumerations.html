@@ -1,0 +1,40 @@
+﻿<html>
+    <body>
+        <h1 id="move"></h1>
+
+        <script>
+            // enumerate the different enemy moves
+            const NORMAL_ATTACK = 0;
+            const SPECIAL_ATTACK = 1;
+            const MAGIC_ATTACK = 2;
+            const HEAL = 3;
+
+            // store the currently chosen move
+            let moveNumber;
+
+            // timer loop allows computer to choose a move every 2.5 seconds
+            setInterval(chooseMove, 2500); 
+
+            // chooses a random enemy move
+            function chooseMove() {
+                // create a random number between 0 and 3 to represent
+                // the enemy's move
+                moveNumber = Math.floor(Math.random() * 4);
+
+                // print out the correct move message
+                if (moveNumber == NORMAL_ATTACK) {
+                    document.getElementById('move').innerText = 'Computer does a Normal Attack!';
+                }
+                else if (moveNumber == SPECIAL_ATTACK) {
+                    document.getElementById('move').innerText = 'Computer does a Special Attack!';
+                }
+                else if (moveNumber == MAGIC_ATTACK) {
+                    document.getElementById('move').innerText = 'Computer does a Magic Attack!';
+                }
+                else {
+                    document.getElementById('move').innerText = 'Computer heals!';
+                }
+            }
+        </script>
+    </body>
+</html>

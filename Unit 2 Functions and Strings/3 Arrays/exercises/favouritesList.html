@@ -1,0 +1,54 @@
+﻿<html>
+    <head>
+        <title>Favourite Individual sport players and their sport</title>
+    </head>
+    <body>
+        <h2 id="list"></h2>
+        <script>
+            // control array size
+            const PLAYER_NUM = 5;
+            // constant to store HTML element
+            const P_PLAYERS_LIST = document.getElementById("list");
+            // declare array for list
+            let players = new Array(PLAYER_NUM);
+            let sports = new Array(PLAYER_NUM)
+
+            // Begin the program
+            start()
+
+            // START - program function begins here
+            function start() {
+                createList();
+                printList();
+            }
+
+            // assign array values
+            function createList() {
+                players[0] = "Hans Niemann: "
+                sports[0] = "Chess"
+
+                players[1] = "Hans Niemann: "
+                sports[1] = "Swimmer"
+
+                players[2] = "Messi: "
+                sports[2] = "Ligue 1 football player"
+
+                players[3] = "Ronaldo: "
+                sports[3] = "House league football player"
+
+                players[4] = "Nick Kyrgios: "
+                sports[4] = "Tennis player"
+            }
+
+            // Print the list into a single paragraph
+            function printList() {
+                P_PLAYERS_LIST.innerText =
+                    "1: " + players[0] + sports[0] +
+                    "\n2: " + players[1] + sports[1] +
+                    "\n3: " + players[2] + sports[2] +
+                    "\n4: " + players[3] + sports[3] +
+                    "\n5: " + players[4] + sports[4];
+            }
+        </script>
+    </body>
+</html>

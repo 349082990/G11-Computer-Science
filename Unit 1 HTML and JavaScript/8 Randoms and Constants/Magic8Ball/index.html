@@ -1,0 +1,55 @@
+﻿<html>
+    <body>
+        <img src="magic8ball.jpg" alt="The Magic 8 Ball" />
+
+        <p></p>
+
+        <input type="text" />
+        <button type="button" onclick="respond();">
+            Ask the All-Knowing Magic 8 Ball!!!
+        </button>
+
+        <p id="response"></p>
+
+        <script>
+            // A constant for the number of possible
+            // responses given by the Magic 8 ball
+            const NUMBER_OF_RESPONSES = 8;
+
+            function respond() {
+                // store the random number
+                let responseNumber = Math.floor(Math.random() * NUMBER_OF_RESPONSES);
+
+                //store the random response
+                let aResponse;
+
+                // print out a response
+                if (responseNumber == 0) {
+                    aResponse = "No way Jose!";
+                }
+                else if (responseNumber == 1) {
+                    aResponse = "Yes";
+                }
+                else if (responseNumber == 2) {
+                    aResponse = "No";
+                }
+                else if (responseNumber == 3) {
+                    aResponse = "Definitely maybe";
+                }
+                else if (responseNumber == 4) {
+                    aResponse = "The future is uncertain";
+                }
+                else if (responseNumber == 5) {
+                    aResponse = "Why would you ask that?";
+                }
+                else if (responseNumber == 6) {
+                    aResponse = "Ask again later";
+                }
+                else {
+                    aResponse = "For sure!";
+                }
+                document.getElementById('response').innerText = aResponse;
+            }
+        </script>
+    </body>
+</html>
